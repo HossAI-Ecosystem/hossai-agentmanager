@@ -1,0 +1,81 @@
+client:
+  name: basic
+  file-system: device-agnostic
+tools: {}
+targets:
+  "HossAIAgentManager-arm64-apple-macosx26.0-debug.exe": ["<HossAIAgentManager-arm64-apple-macosx26.0-debug.exe>"]
+  "HossAIAgentManager-arm64-apple-macosx26.0-debug.module": ["<HossAIAgentManager-arm64-apple-macosx26.0-debug.module>"]
+  "PackageStructure": ["<PackageStructure>"]
+  "main": ["<HossAIAgentManager-arm64-apple-macosx26.0-debug.exe>","<HossAIAgentManager-arm64-apple-macosx26.0-debug.module>"]
+  "test": ["<HossAIAgentManager-arm64-apple-macosx26.0-debug.exe>","<HossAIAgentManager-arm64-apple-macosx26.0-debug.module>"]
+default: "main"
+nodes:
+  "/Volumes/ExtHD2TB/HossAIAgentManager/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+  "/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager":
+    is-mutated: true
+commands:
+  "/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager-entitlement.plist":
+    tool: write-auxiliary-file
+    inputs: ["<entitlement-plist>","<com.apple.security.get-task-allow>"]
+    outputs: ["/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager-entitlement.plist"]
+    description: "Write auxiliary file /Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager-entitlement.plist"
+
+  "/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Volumes/ExtHD2TB/HossAIAgentManager/AXService.swift","/Volumes/ExtHD2TB/HossAIAgentManager/AppVM.swift","/Volumes/ExtHD2TB/HossAIAgentManager/ControlTab.swift","/Volumes/ExtHD2TB/HossAIAgentManager/HossAIAgentManagerApp.swift","/Volumes/ExtHD2TB/HossAIAgentManager/LogsTab.swift","/Volumes/ExtHD2TB/HossAIAgentManager/Models.swift","/Volumes/ExtHD2TB/HossAIAgentManager/RootView.swift","/Volumes/ExtHD2TB/HossAIAgentManager/Sidebar.swift","/Volumes/ExtHD2TB/HossAIAgentManager/Theme.swift","/Volumes/ExtHD2TB/HossAIAgentManager/VoiceService.swift","/Volumes/ExtHD2TB/HossAIAgentManager/WindowsTab.swift"]
+    outputs: ["/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/sources"]
+    description: "Write auxiliary file /Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/sources"
+
+  "/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.product/Objects.LinkFileList":
+    tool: write-auxiliary-file
+    inputs: ["<link-file-list>","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/AXService.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/AppVM.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/ControlTab.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/HossAIAgentManagerApp.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/LogsTab.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/Models.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/RootView.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/Sidebar.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/Theme.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/VoiceService.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/WindowsTab.swift.o"]
+    outputs: ["/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.product/Objects.LinkFileList"]
+    description: "Write auxiliary file /Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.product/Objects.LinkFileList"
+
+  "/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt":
+    tool: write-auxiliary-file
+    inputs: ["<swift-get-version>","/Library/Developer/CommandLineTools/usr/bin/swiftc"]
+    outputs: ["/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"]
+    always-out-of-date: "true"
+    description: "Write auxiliary file /Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
+
+  "<HossAIAgentManager-arm64-apple-macosx26.0-debug.exe>":
+    tool: phony
+    inputs: ["<HossAIAgentManager-arm64-apple-macosx26.0-debug.exe-CodeSigning>"]
+    outputs: ["<HossAIAgentManager-arm64-apple-macosx26.0-debug.exe>"]
+
+  "<HossAIAgentManager-arm64-apple-macosx26.0-debug.module>":
+    tool: phony
+    inputs: ["/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/AXService.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/AppVM.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/ControlTab.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/HossAIAgentManagerApp.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/LogsTab.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/Models.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/RootView.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/Sidebar.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/Theme.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/VoiceService.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/WindowsTab.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/Modules/HossAIAgentManager.swiftmodule"]
+    outputs: ["<HossAIAgentManager-arm64-apple-macosx26.0-debug.module>"]
+
+  "C.HossAIAgentManager-arm64-apple-macosx26.0-debug.exe":
+    tool: shell
+    inputs: ["/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/AXService.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/AppVM.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/ControlTab.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/HossAIAgentManagerApp.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/LogsTab.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/Models.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/RootView.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/Sidebar.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/Theme.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/VoiceService.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/WindowsTab.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.product/Objects.LinkFileList"]
+    outputs: ["/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager"]
+    description: "Linking ./.build/arm64-apple-macosx/debug/HossAIAgentManager"
+    args: ["/Library/Developer/CommandLineTools/usr/bin/swiftc","-L","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug","-o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager","-module-name","HossAIAgentManager","-Xlinker","-no_warn_duplicate_libraries","-emit-executable","-Xlinker","-alias","-Xlinker","_HossAIAgentManager_main","-Xlinker","_main","-Xlinker","-rpath","-Xlinker","@loader_path","@/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.product/Objects.LinkFileList","-target","arm64-apple-macosx13.0","-Xlinker","-add_ast_path","-Xlinker","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/Modules/HossAIAgentManager.swiftmodule","-I","/Library/Developer/CommandLineTools/Library/Developer/Frameworks","-L","/Library/Developer/CommandLineTools/Library/Developer/Frameworks","-plugin-path","/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing","-sdk","/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk","-g"]
+
+  "C.HossAIAgentManager-arm64-apple-macosx26.0-debug.exe-entitlements":
+    tool: shell
+    inputs: ["/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager-entitlement.plist"]
+    outputs: ["<HossAIAgentManager-arm64-apple-macosx26.0-debug.exe-CodeSigning>"]
+    description: "Applying debug entitlements to ./.build/arm64-apple-macosx/debug/HossAIAgentManager"
+    args: ["codesign","--force","--sign","-","--entitlements","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager-entitlement.plist","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager"]
+
+  "C.HossAIAgentManager-arm64-apple-macosx26.0-debug.module":
+    tool: shell
+    inputs: ["/Volumes/ExtHD2TB/HossAIAgentManager/AXService.swift","/Volumes/ExtHD2TB/HossAIAgentManager/AppVM.swift","/Volumes/ExtHD2TB/HossAIAgentManager/ControlTab.swift","/Volumes/ExtHD2TB/HossAIAgentManager/HossAIAgentManagerApp.swift","/Volumes/ExtHD2TB/HossAIAgentManager/LogsTab.swift","/Volumes/ExtHD2TB/HossAIAgentManager/Models.swift","/Volumes/ExtHD2TB/HossAIAgentManager/RootView.swift","/Volumes/ExtHD2TB/HossAIAgentManager/Sidebar.swift","/Volumes/ExtHD2TB/HossAIAgentManager/Theme.swift","/Volumes/ExtHD2TB/HossAIAgentManager/VoiceService.swift","/Volumes/ExtHD2TB/HossAIAgentManager/WindowsTab.swift","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/sources"]
+    outputs: ["/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/AXService.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/AppVM.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/ControlTab.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/HossAIAgentManagerApp.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/LogsTab.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/Models.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/RootView.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/Sidebar.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/Theme.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/VoiceService.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/WindowsTab.swift.o","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/Modules/HossAIAgentManager.swiftmodule"]
+    description: "Compiling Swift Module 'HossAIAgentManager' (11 sources)"
+    args: ["/Library/Developer/CommandLineTools/usr/bin/swiftc","-module-name","HossAIAgentManager","-emit-dependencies","-emit-module","-emit-module-path","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/Modules/HossAIAgentManager.swiftmodule","-output-file-map","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/output-file-map.json","-incremental","-c","@/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/HossAIAgentManager.build/sources","-I","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/Modules","-target","arm64-apple-macosx13.0","-incremental","-enable-batch-mode","-serialize-diagnostics","-index-store-path","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/index/store","-Onone","-enable-testing","-j16","-DSWIFT_PACKAGE","-DDEBUG","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/Volumes/ExtHD2TB/HossAIAgentManager/.build/arm64-apple-macosx/debug/ModuleCache","-parseable-output","-Xfrontend","-entry-point-function-name","-Xfrontend","HossAIAgentManager_main","-swift-version","5","-I","/Library/Developer/CommandLineTools/Library/Developer/Frameworks","-L","/Library/Developer/CommandLineTools/Library/Developer/Frameworks","-plugin-path","/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing","-sdk","/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk","-g","-Xcc","-isysroot","-Xcc","/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk","-Xcc","-fPIC","-Xcc","-g","-package-name","hossaiagentmanager"]
+
+  "PackageStructure":
+    tool: package-structure-tool
+    inputs: ["/Volumes/ExtHD2TB/HossAIAgentManager/","/Volumes/ExtHD2TB/HossAIAgentManager/Package.swift","/Volumes/ExtHD2TB/HossAIAgentManager/Package.resolved"]
+    outputs: ["<PackageStructure>"]
+    description: "Planning build"
+    allow-missing-inputs: true
+
